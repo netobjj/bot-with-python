@@ -1,0 +1,2157 @@
+<!doctype html>
+<html lang=en>
+
+<head>
+	<title>sqlalchemy.exc.OperationalError: (MySQLdb.OperationalError) (1045, "Access denied for user
+		'jose.euclides'@'localhost' (using password: NO)")
+		(Background on this error at: https://sqlalche.me/e/20/e3q8)
+		// Werkzeug Debugger</title>
+	<link rel="stylesheet" href="?__debugger__=yes&amp;cmd=resource&amp;f=style.css">
+	<link rel="shortcut icon" href="?__debugger__=yes&amp;cmd=resource&amp;f=console.png">
+	<script src="?__debugger__=yes&amp;cmd=resource&amp;f=debugger.js"></script>
+	<script>
+		var CONSOLE_MODE = false,
+          EVALEX = true,
+          EVALEX_TRUSTED = false,
+          SECRET = "JTf2s4I7aKEg667BiS0B";
+	</script>
+</head>
+
+<body style="background-color: #fff">
+	<div class="debugger">
+		<h1>OperationalError</h1>
+		<div class="detail">
+			<p class="errormsg">sqlalchemy.exc.OperationalError: (MySQLdb.OperationalError) (1045, &#34;Access denied
+				for user &#39;jose.euclides&#39;@&#39;localhost&#39; (using password: NO)&#34;)
+				(Background on this error at: https://sqlalche.me/e/20/e3q8)
+			</p>
+		</div>
+		<h2 class="traceback">Traceback <em>(most recent call last)</em></h2>
+		<div class="traceback">
+			<h3></h3>
+			<ul>
+				<li>
+					<div class="frame" id="frame-2966260595104">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\engine\base.py"</cite>,
+							line <em class="line">145</em>,
+							in <code class="function">__init__</code></h4>
+						<div class="source ">
+							<pre class="line before"><span class="ws">        </span>self.engine = engine</pre>
+							<pre
+								class="line before"><span class="ws">        </span>self.dialect = dialect = engine.dialect</pre>
+							<pre class="line before"><span class="ws"></span> </pre>
+							<pre class="line before"><span class="ws">        </span>if connection is None:</pre>
+							<pre class="line before"><span class="ws">            </span>try:</pre>
+							<pre class="line current"><span class="ws">                </span>self._dbapi_connection = engine.raw_connection()
+<span class="ws">                </span>                         ^^^^^^^^^^^^^^^^^^^^^^^</pre>
+							<pre
+								class="line after"><span class="ws">            </span>except dialect.loaded_dbapi.Error as err:</pre>
+							<pre
+								class="line after"><span class="ws">                </span>Connection._handle_dbapi_exception_noconnection(</pre>
+							<pre
+								class="line after"><span class="ws">                    </span>err, dialect, engine</pre>
+							<pre class="line after"><span class="ws">                </span>)</pre>
+							<pre class="line after"><span class="ws">                </span>raise</pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966260595392">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\engine\base.py"</cite>,
+							line <em class="line">3293</em>,
+							in <code class="function">raw_connection</code></h4>
+						<div class="source ">
+							<pre class="line before"><span class="ws">        </span>.. seealso::</pre>
+							<pre class="line before"><span class="ws"></span> </pre>
+							<pre class="line before"><span class="ws">            </span>:ref:`dbapi_connections`</pre>
+							<pre class="line before"><span class="ws"></span> </pre>
+							<pre class="line before"><span class="ws">        </span>&#34;&#34;&#34;</pre>
+							<pre class="line current"><span class="ws">        </span>return self.pool.connect()
+<span class="ws">        </span>       ^^^^^^^^^^^^^^^^^^^</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+							<pre
+								class="line after"><span class="ws"></span>class OptionEngineMixin(log.Identified):</pre>
+							<pre class="line after"><span class="ws">    </span>_sa_propagate_class_events = False</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966260595536">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\pool\base.py"</cite>,
+							line <em class="line">452</em>,
+							in <code class="function">connect</code></h4>
+						<div class="source ">
+							<pre
+								class="line before"><span class="ws">        </span>The connection is instrumented such that when its</pre>
+							<pre
+								class="line before"><span class="ws">        </span>``close()`` method is called, the connection will be returned to</pre>
+							<pre class="line before"><span class="ws">        </span>the pool.</pre>
+							<pre class="line before"><span class="ws"></span> </pre>
+							<pre class="line before"><span class="ws">        </span>&#34;&#34;&#34;</pre>
+							<pre class="line current"><span class="ws">        </span>return _ConnectionFairy._checkout(self)
+<span class="ws">        </span>       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+							<pre
+								class="line after"><span class="ws">    </span>def _return_conn(self, record: ConnectionPoolEntry) -&gt; None:</pre>
+							<pre
+								class="line after"><span class="ws">        </span>&#34;&#34;&#34;Given a _ConnectionRecord, return it to the :class:`_pool.Pool`.</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+							<pre
+								class="line after"><span class="ws">        </span>This method is called when an instrumented DBAPI connection</pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966260595680">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\pool\base.py"</cite>,
+							line <em class="line">1268</em>,
+							in <code class="function">_checkout</code></h4>
+						<div class="source ">
+							<pre
+								class="line before"><span class="ws">        </span>threadconns: Optional[threading.local] = None,</pre>
+							<pre
+								class="line before"><span class="ws">        </span>fairy: Optional[_ConnectionFairy] = None,</pre>
+							<pre class="line before"><span class="ws">    </span>) -&gt; _ConnectionFairy:</pre>
+							<pre class="line before"><span class="ws"></span> </pre>
+							<pre class="line before"><span class="ws">        </span>if not fairy:</pre>
+							<pre class="line current"><span class="ws">            </span>fairy = _ConnectionRecord.checkout(pool)
+<span class="ws">            </span>        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+							<pre
+								class="line after"><span class="ws">            </span>if threadconns is not None:</pre>
+							<pre
+								class="line after"><span class="ws">                </span>threadconns.current = weakref.ref(fairy)</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+							<pre class="line after"><span class="ws">        </span>assert (</pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966260595824">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\pool\base.py"</cite>,
+							line <em class="line">716</em>,
+							in <code class="function">checkout</code></h4>
+						<div class="source ">
+							<pre class="line before"><span class="ws">    </span>@classmethod</pre>
+							<pre
+								class="line before"><span class="ws">    </span>def checkout(cls, pool: Pool) -&gt; _ConnectionFairy:</pre>
+							<pre class="line before"><span class="ws">        </span>if TYPE_CHECKING:</pre>
+							<pre
+								class="line before"><span class="ws">            </span>rec = cast(_ConnectionRecord, pool._do_get())</pre>
+							<pre class="line before"><span class="ws">        </span>else:</pre>
+							<pre class="line current"><span class="ws">            </span>rec = pool._do_get()
+<span class="ws">            </span>      ^^^^^^^^^^^^^^</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+							<pre class="line after"><span class="ws">        </span>try:</pre>
+							<pre
+								class="line after"><span class="ws">            </span>dbapi_connection = rec.get_connection()</pre>
+							<pre class="line after"><span class="ws">        </span>except BaseException as err:</pre>
+							<pre class="line after"><span class="ws">            </span>with util.safe_reraise():</pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966260595968">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\pool\impl.py"</cite>,
+							line <em class="line">168</em>,
+							in <code class="function">_do_get</code></h4>
+						<div class="source ">
+							<pre class="line before"><span class="ws"></span> </pre>
+							<pre class="line before"><span class="ws">        </span>if self._inc_overflow():</pre>
+							<pre class="line before"><span class="ws">            </span>try:</pre>
+							<pre
+								class="line before"><span class="ws">                </span>return self._create_connection()</pre>
+							<pre class="line before"><span class="ws">            </span>except:</pre>
+							<pre class="line current"><span class="ws">                </span>with util.safe_reraise():
+<span class="ws">                </span>^^^^^^^^^^^^^^^^^^^^^^^^</pre>
+							<pre
+								class="line after"><span class="ws">                    </span>self._dec_overflow()</pre>
+							<pre class="line after"><span class="ws">                </span>raise</pre>
+							<pre class="line after"><span class="ws">        </span>else:</pre>
+							<pre class="line after"><span class="ws">            </span>return self._do_get()</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966260596112">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\util\langhelpers.py"</cite>,
+							line <em class="line">147</em>,
+							in <code class="function">__exit__</code></h4>
+						<div class="source ">
+							<pre class="line before"><span class="ws">        </span># see #2703 for notes</pre>
+							<pre class="line before"><span class="ws">        </span>if type_ is None:</pre>
+							<pre
+								class="line before"><span class="ws">            </span>exc_type, exc_value, exc_tb = self._exc_info</pre>
+							<pre
+								class="line before"><span class="ws">            </span>assert exc_value is not None</pre>
+							<pre
+								class="line before"><span class="ws">            </span>self._exc_info = None  # remove potential circular references</pre>
+							<pre class="line current"><span class="ws">            </span>raise exc_value.with_traceback(exc_tb)
+<span class="ws">            </span>^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</pre>
+							<pre class="line after"><span class="ws">        </span>else:</pre>
+							<pre
+								class="line after"><span class="ws">            </span>self._exc_info = None  # remove potential circular references</pre>
+							<pre class="line after"><span class="ws">            </span>assert value is not None</pre>
+							<pre
+								class="line after"><span class="ws">            </span>raise value.with_traceback(traceback)</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966260596256">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\pool\impl.py"</cite>,
+							line <em class="line">166</em>,
+							in <code class="function">_do_get</code></h4>
+						<div class="source ">
+							<pre
+								class="line before"><span class="ws">                    </span>code=&#34;3o7r&#34;,</pre>
+							<pre class="line before"><span class="ws">                </span>)</pre>
+							<pre class="line before"><span class="ws"></span> </pre>
+							<pre class="line before"><span class="ws">        </span>if self._inc_overflow():</pre>
+							<pre class="line before"><span class="ws">            </span>try:</pre>
+							<pre class="line current"><span class="ws">                </span>return self._create_connection()
+<span class="ws">                </span>       ^^^^^^^^^^^^^^^^^^^^^^^^^</pre>
+							<pre class="line after"><span class="ws">            </span>except:</pre>
+							<pre
+								class="line after"><span class="ws">                </span>with util.safe_reraise():</pre>
+							<pre
+								class="line after"><span class="ws">                    </span>self._dec_overflow()</pre>
+							<pre class="line after"><span class="ws">                </span>raise</pre>
+							<pre class="line after"><span class="ws">        </span>else:</pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966260596400">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\pool\base.py"</cite>,
+							line <em class="line">393</em>,
+							in <code class="function">_create_connection</code></h4>
+						<div class="source ">
+							<pre class="line before"><span class="ws">                </span>raise</pre>
+							<pre class="line before"><span class="ws"></span> </pre>
+							<pre
+								class="line before"><span class="ws">    </span>def _create_connection(self) -&gt; ConnectionPoolEntry:</pre>
+							<pre
+								class="line before"><span class="ws">        </span>&#34;&#34;&#34;Called by subclasses to create a new ConnectionRecord.&#34;&#34;&#34;</pre>
+							<pre class="line before"><span class="ws"></span> </pre>
+							<pre class="line current"><span class="ws">        </span>return _ConnectionRecord(self)
+<span class="ws">        </span>       ^^^^^^^^^^^^^^^^^^^^^^^</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+							<pre class="line after"><span class="ws">    </span>def _invalidate(</pre>
+							<pre class="line after"><span class="ws">        </span>self,</pre>
+							<pre
+								class="line after"><span class="ws">        </span>connection: PoolProxiedConnection,</pre>
+							<pre
+								class="line after"><span class="ws">        </span>exception: Optional[BaseException] = None,</pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966260596544">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\pool\base.py"</cite>,
+							line <em class="line">678</em>,
+							in <code class="function">__init__</code></h4>
+						<div class="source ">
+							<pre class="line before"><span class="ws">        </span>self.starttime = 0</pre>
+							<pre class="line before"><span class="ws">        </span>self.dbapi_connection = None</pre>
+							<pre class="line before"><span class="ws"></span> </pre>
+							<pre class="line before"><span class="ws">        </span>self.__pool = pool</pre>
+							<pre class="line before"><span class="ws">        </span>if connect:</pre>
+							<pre class="line current"><span class="ws">            </span>self.__connect()
+<span class="ws">            </span>^^^^^^^^^^^^^^^^</pre>
+							<pre
+								class="line after"><span class="ws">        </span>self.finalize_callback = deque()</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+							<pre
+								class="line after"><span class="ws">    </span>dbapi_connection: Optional[DBAPIConnection]</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+							<pre class="line after"><span class="ws">    </span>@property</pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966261301312">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\pool\base.py"</cite>,
+							line <em class="line">902</em>,
+							in <code class="function">__connect</code></h4>
+						<div class="source ">
+							<pre
+								class="line before"><span class="ws">            </span>self.starttime = time.time()</pre>
+							<pre
+								class="line before"><span class="ws">            </span>self.dbapi_connection = connection = pool._invoke_creator(self)</pre>
+							<pre
+								class="line before"><span class="ws">            </span>pool.logger.debug(&#34;Created new connection %r&#34;, connection)</pre>
+							<pre class="line before"><span class="ws">            </span>self.fresh = True</pre>
+							<pre class="line before"><span class="ws">        </span>except BaseException as e:</pre>
+							<pre class="line current"><span class="ws">            </span>with util.safe_reraise():
+<span class="ws">            </span>^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</pre>
+							<pre
+								class="line after"><span class="ws">                </span>pool.logger.debug(&#34;Error on connect(): %s&#34;, e)</pre>
+							<pre class="line after"><span class="ws">        </span>else:</pre>
+							<pre
+								class="line after"><span class="ws">            </span># in SQLAlchemy 1.4 the first_connect event is not used by</pre>
+							<pre
+								class="line after"><span class="ws">            </span># the engine, so this will usually not be set</pre>
+							<pre
+								class="line after"><span class="ws">            </span>if pool.dispatch.first_connect:</pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966261301456">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\util\langhelpers.py"</cite>,
+							line <em class="line">147</em>,
+							in <code class="function">__exit__</code></h4>
+						<div class="source ">
+							<pre class="line before"><span class="ws">        </span># see #2703 for notes</pre>
+							<pre class="line before"><span class="ws">        </span>if type_ is None:</pre>
+							<pre
+								class="line before"><span class="ws">            </span>exc_type, exc_value, exc_tb = self._exc_info</pre>
+							<pre
+								class="line before"><span class="ws">            </span>assert exc_value is not None</pre>
+							<pre
+								class="line before"><span class="ws">            </span>self._exc_info = None  # remove potential circular references</pre>
+							<pre class="line current"><span class="ws">            </span>raise exc_value.with_traceback(exc_tb)
+<span class="ws">            </span>^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</pre>
+							<pre class="line after"><span class="ws">        </span>else:</pre>
+							<pre
+								class="line after"><span class="ws">            </span>self._exc_info = None  # remove potential circular references</pre>
+							<pre class="line after"><span class="ws">            </span>assert value is not None</pre>
+							<pre
+								class="line after"><span class="ws">            </span>raise value.with_traceback(traceback)</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966261301600">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\pool\base.py"</cite>,
+							line <em class="line">898</em>,
+							in <code class="function">__connect</code></h4>
+						<div class="source ">
+							<pre
+								class="line before"><span class="ws">        </span># ensure any existing connection is removed, so that if</pre>
+							<pre
+								class="line before"><span class="ws">        </span># creator fails, this attribute stays None</pre>
+							<pre class="line before"><span class="ws">        </span>self.dbapi_connection = None</pre>
+							<pre class="line before"><span class="ws">        </span>try:</pre>
+							<pre
+								class="line before"><span class="ws">            </span>self.starttime = time.time()</pre>
+							<pre class="line current"><span class="ws">            </span>self.dbapi_connection = connection = pool._invoke_creator(self)
+<span class="ws">            </span>                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^</pre>
+							<pre
+								class="line after"><span class="ws">            </span>pool.logger.debug(&#34;Created new connection %r&#34;, connection)</pre>
+							<pre class="line after"><span class="ws">            </span>self.fresh = True</pre>
+							<pre class="line after"><span class="ws">        </span>except BaseException as e:</pre>
+							<pre class="line after"><span class="ws">            </span>with util.safe_reraise():</pre>
+							<pre
+								class="line after"><span class="ws">                </span>pool.logger.debug(&#34;Error on connect(): %s&#34;, e)</pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966261301744">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\engine\create.py"</cite>,
+							line <em class="line">637</em>,
+							in <code class="function">connect</code></h4>
+						<div class="source ">
+							<pre
+								class="line before"><span class="ws">                        </span>fn(dialect, connection_record, cargs, cparams),</pre>
+							<pre class="line before"><span class="ws">                    </span>)</pre>
+							<pre
+								class="line before"><span class="ws">                    </span>if connection is not None:</pre>
+							<pre
+								class="line before"><span class="ws">                        </span>return connection</pre>
+							<pre class="line before"><span class="ws"></span> </pre>
+							<pre class="line current"><span class="ws">            </span>return dialect.connect(*cargs, **cparams)
+<span class="ws">            </span>       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+							<pre
+								class="line after"><span class="ws">        </span>creator = pop_kwarg(&#34;creator&#34;, connect)</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+							<pre
+								class="line after"><span class="ws">        </span>poolclass = pop_kwarg(&#34;poolclass&#34;, None)</pre>
+							<pre class="line after"><span class="ws">        </span>if poolclass is None:</pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966261301888">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\engine\default.py"</cite>,
+							line <em class="line">616</em>,
+							in <code class="function">connect</code></h4>
+						<div class="source ">
+							<pre
+								class="line before"><span class="ws">                </span>% (ident, self.max_identifier_length)</pre>
+							<pre class="line before"><span class="ws">            </span>)</pre>
+							<pre class="line before"><span class="ws"></span> </pre>
+							<pre
+								class="line before"><span class="ws">    </span>def connect(self, *cargs, **cparams):</pre>
+							<pre
+								class="line before"><span class="ws">        </span># inherits the docstring from interfaces.Dialect.connect</pre>
+							<pre class="line current"><span class="ws">        </span>return self.loaded_dbapi.connect(*cargs, **cparams)
+<span class="ws">        </span>       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+							<pre
+								class="line after"><span class="ws">    </span>def create_connect_args(self, url):</pre>
+							<pre
+								class="line after"><span class="ws">        </span># inherits the docstring from interfaces.Dialect.create_connect_args</pre>
+							<pre
+								class="line after"><span class="ws">        </span>opts = url.translate_connect_args()</pre>
+							<pre class="line after"><span class="ws">        </span>opts.update(url.query)</pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966261302032">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\MySQLdb\__init__.py"</cite>,
+							line <em class="line">123</em>,
+							in <code class="function">Connect</code></h4>
+						<div class="source ">
+							<pre class="line before"><span class="ws"></span> </pre>
+							<pre class="line before"><span class="ws"></span>def Connect(*args, **kwargs):</pre>
+							<pre
+								class="line before"><span class="ws">    </span>&#34;&#34;&#34;Factory function for connections.Connection.&#34;&#34;&#34;</pre>
+							<pre
+								class="line before"><span class="ws">    </span>from MySQLdb.connections import Connection</pre>
+							<pre class="line before"><span class="ws"></span> </pre>
+							<pre class="line current"><span class="ws">    </span>return Connection(*args, **kwargs)
+<span class="ws">    </span>       ^^^^^^^^^^^^^^^^^^^^^^^^^^^</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+							<pre class="line after"><span class="ws"></span>connect = Connection = Connect</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+							<pre class="line after"><span class="ws"></span>__all__ = [</pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966261302176">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\MySQLdb\connections.py"</cite>,
+							line <em class="line">185</em>,
+							in <code class="function">__init__</code></h4>
+						<div class="source ">
+							<pre
+								class="line before"><span class="ws">        </span>kwargs2[&#34;client_flag&#34;] = client_flag</pre>
+							<pre class="line before"><span class="ws"></span> </pre>
+							<pre
+								class="line before"><span class="ws">        </span># PEP-249 requires autocommit to be initially off</pre>
+							<pre
+								class="line before"><span class="ws">        </span>autocommit = kwargs2.pop(&#34;autocommit&#34;, False)</pre>
+							<pre class="line before"><span class="ws"></span> </pre>
+							<pre class="line current"><span class="ws">        </span>super().__init__(*args, **kwargs2)
+<span class="ws">        </span>^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</pre>
+							<pre class="line after"><span class="ws">        </span>self.cursorclass = cursorclass</pre>
+							<pre
+								class="line after"><span class="ws">        </span>self.encoders = {k: v for k, v in conv.items() if type(k) is not int}</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+							<pre class="line after"><span class="ws">        </span>self._server_version = tuple(</pre>
+							<pre
+								class="line after"><span class="ws">            </span>[numeric_part(n) for n in self.get_server_info().split(&#34;.&#34;)[:2]]</pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="exc-divider">The above exception was the direct cause of the following exception:</div>
+				<li>
+					<div class="frame" id="frame-2966256215824">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\flask\app.py"</cite>,
+							line <em class="line">2213</em>,
+							in <code class="function">__call__</code></h4>
+						<div class="source ">
+							<pre
+								class="line before"><span class="ws">    </span>def __call__(self, environ: dict, start_response: t.Callable) -&gt; t.Any:</pre>
+							<pre
+								class="line before"><span class="ws">        </span>&#34;&#34;&#34;The WSGI server calls the Flask application object as the</pre>
+							<pre
+								class="line before"><span class="ws">        </span>WSGI application. This calls :meth:`wsgi_app`, which can be</pre>
+							<pre class="line before"><span class="ws">        </span>wrapped to apply middleware.</pre>
+							<pre class="line before"><span class="ws">        </span>&#34;&#34;&#34;</pre>
+							<pre class="line current"><span class="ws">        </span>return self.wsgi_app(environ, start_response)
+<span class="ws">        </span>       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966256221872">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\flask\app.py"</cite>,
+							line <em class="line">2193</em>,
+							in <code class="function">wsgi_app</code></h4>
+						<div class="source ">
+							<pre class="line before"><span class="ws">            </span>try:</pre>
+							<pre class="line before"><span class="ws">                </span>ctx.push()</pre>
+							<pre
+								class="line before"><span class="ws">                </span>response = self.full_dispatch_request()</pre>
+							<pre class="line before"><span class="ws">            </span>except Exception as e:</pre>
+							<pre class="line before"><span class="ws">                </span>error = e</pre>
+							<pre class="line current"><span class="ws">                </span>response = self.handle_exception(e)
+<span class="ws">                </span>           ^^^^^^^^^^^^^^^^^^^^^^^^</pre>
+							<pre class="line after"><span class="ws">            </span>except:  # noqa: B001</pre>
+							<pre
+								class="line after"><span class="ws">                </span>error = sys.exc_info()[1]</pre>
+							<pre class="line after"><span class="ws">                </span>raise</pre>
+							<pre
+								class="line after"><span class="ws">            </span>return response(environ, start_response)</pre>
+							<pre class="line after"><span class="ws">        </span>finally:</pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966256222016">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\flask\app.py"</cite>,
+							line <em class="line">2190</em>,
+							in <code class="function">wsgi_app</code></h4>
+						<div class="source ">
+							<pre
+								class="line before"><span class="ws">        </span>ctx = self.request_context(environ)</pre>
+							<pre
+								class="line before"><span class="ws">        </span>error: BaseException | None = None</pre>
+							<pre class="line before"><span class="ws">        </span>try:</pre>
+							<pre class="line before"><span class="ws">            </span>try:</pre>
+							<pre class="line before"><span class="ws">                </span>ctx.push()</pre>
+							<pre class="line current"><span class="ws">                </span>response = self.full_dispatch_request()
+<span class="ws">                </span>           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^</pre>
+							<pre class="line after"><span class="ws">            </span>except Exception as e:</pre>
+							<pre class="line after"><span class="ws">                </span>error = e</pre>
+							<pre
+								class="line after"><span class="ws">                </span>response = self.handle_exception(e)</pre>
+							<pre class="line after"><span class="ws">            </span>except:  # noqa: B001</pre>
+							<pre
+								class="line after"><span class="ws">                </span>error = sys.exc_info()[1]</pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966257467456">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\flask\app.py"</cite>,
+							line <em class="line">1486</em>,
+							in <code class="function">full_dispatch_request</code></h4>
+						<div class="source ">
+							<pre
+								class="line before"><span class="ws">            </span>request_started.send(self, _async_wrapper=self.ensure_sync)</pre>
+							<pre
+								class="line before"><span class="ws">            </span>rv = self.preprocess_request()</pre>
+							<pre class="line before"><span class="ws">            </span>if rv is None:</pre>
+							<pre
+								class="line before"><span class="ws">                </span>rv = self.dispatch_request()</pre>
+							<pre class="line before"><span class="ws">        </span>except Exception as e:</pre>
+							<pre class="line current"><span class="ws">            </span>rv = self.handle_user_exception(e)
+<span class="ws">            </span>     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</pre>
+							<pre
+								class="line after"><span class="ws">        </span>return self.finalize_request(rv)</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+							<pre class="line after"><span class="ws">    </span>def finalize_request(</pre>
+							<pre class="line after"><span class="ws">        </span>self,</pre>
+							<pre
+								class="line after"><span class="ws">        </span>rv: ft.ResponseReturnValue | HTTPException,</pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966257467600">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\flask\app.py"</cite>,
+							line <em class="line">1484</em>,
+							in <code class="function">full_dispatch_request</code></h4>
+						<div class="source ">
+							<pre class="line before"><span class="ws"></span> </pre>
+							<pre class="line before"><span class="ws">        </span>try:</pre>
+							<pre
+								class="line before"><span class="ws">            </span>request_started.send(self, _async_wrapper=self.ensure_sync)</pre>
+							<pre
+								class="line before"><span class="ws">            </span>rv = self.preprocess_request()</pre>
+							<pre class="line before"><span class="ws">            </span>if rv is None:</pre>
+							<pre class="line current"><span class="ws">                </span>rv = self.dispatch_request()
+<span class="ws">                </span>     ^^^^^^^^^^^^^^^^^^^^^^^</pre>
+							<pre class="line after"><span class="ws">        </span>except Exception as e:</pre>
+							<pre
+								class="line after"><span class="ws">            </span>rv = self.handle_user_exception(e)</pre>
+							<pre
+								class="line after"><span class="ws">        </span>return self.finalize_request(rv)</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+							<pre class="line after"><span class="ws">    </span>def finalize_request(</pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966257467744">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\flask\app.py"</cite>,
+							line <em class="line">1469</em>,
+							in <code class="function">dispatch_request</code></h4>
+						<div class="source ">
+							<pre
+								class="line before"><span class="ws">            </span>and req.method == &#34;OPTIONS&#34;</pre>
+							<pre class="line before"><span class="ws">        </span>):</pre>
+							<pre
+								class="line before"><span class="ws">            </span>return self.make_default_options_response()</pre>
+							<pre
+								class="line before"><span class="ws">        </span># otherwise dispatch to the handler for that endpoint</pre>
+							<pre
+								class="line before"><span class="ws">        </span>view_args: dict[str, t.Any] = req.view_args  # type: ignore[assignment]</pre>
+							<pre class="line current"><span class="ws">        </span>return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+<span class="ws">        </span>       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+							<pre
+								class="line after"><span class="ws">    </span>def full_dispatch_request(self) -&gt; Response:</pre>
+							<pre
+								class="line after"><span class="ws">        </span>&#34;&#34;&#34;Dispatches the request and on top of that performs request</pre>
+							<pre
+								class="line after"><span class="ws">        </span>pre and postprocessing as well as HTTP exception catching and</pre>
+							<pre class="line after"><span class="ws">        </span>error handling.</pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966257467888">
+						<h4>File
+							<cite class="filename">"c:\Users\Jose Euclides\Desktop\Programação\Python\Bot\backend\app.py"</cite>,
+							line <em class="line">59</em>,
+							in <code class="function">executar</code></h4>
+						<div class="source ">
+							<pre
+								class="line before"><span class="ws">    </span>usuario_acionador = request.json[&#39;usuario_acionador&#39;]</pre>
+							<pre
+								class="line before"><span class="ws">    </span>arquivo = request.json[&#39;arquivo&#39;]</pre>
+							<pre class="line before"><span class="ws"></span> </pre>
+							<pre
+								class="line before"><span class="ws">    </span>execucoes = Execucoes(tipo_bot, status, usuario_acionador, arquivo)</pre>
+							<pre class="line before"><span class="ws">    </span>db.session.add(execucoes)</pre>
+							<pre class="line current"><span class="ws">    </span>db.session.commit()
+<span class="ws">    </span>^^^^^^^^^^^^^^^^^^^</pre>
+							<pre
+								class="line after"><span class="ws">    </span>return execucuao_schema.jsonify(execucoes)</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+							<pre
+								class="line after"><span class="ws">    </span># id, tipo_bot, status, usuario_acionador, arquivo, data</pre>
+							<pre
+								class="line after"><span class="ws">    </span># define_nova_situacao.definir_nova_situacao_aula(&#34;url&#34;, &#34;email&#34;, &#34;senha&#34;, &#34;novo_status&#34;)</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966257468464">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\orm\scoping.py"</cite>,
+							line <em class="line">553</em>,
+							in <code class="function">commit</code></h4>
+						<div class="source ">
+							<pre
+								class="line before"><span class="ws">            </span>:ref:`asyncio_orm_avoid_lazyloads`</pre>
+							<pre class="line before"><span class="ws"></span> </pre>
+							<pre class="line before"><span class="ws"></span> </pre>
+							<pre class="line before"><span class="ws">        </span>&#34;&#34;&#34;  # noqa: E501</pre>
+							<pre class="line before"><span class="ws"></span> </pre>
+							<pre class="line current"><span class="ws">        </span>return self._proxied.commit()
+<span class="ws">        </span>       ^^^^^^^^^^^^^^^^^^^^^^</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+							<pre class="line after"><span class="ws">    </span>def connection(</pre>
+							<pre class="line after"><span class="ws">        </span>self,</pre>
+							<pre
+								class="line after"><span class="ws">        </span>bind_arguments: Optional[_BindArguments] = None,</pre>
+							<pre
+								class="line after"><span class="ws">        </span>execution_options: Optional[_ExecuteOptions] = None,</pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966257470768">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\orm\session.py"</cite>,
+							line <em class="line">1906</em>,
+							in <code class="function">commit</code></h4>
+						<div class="source ">
+							<pre class="line before"><span class="ws">        </span>&#34;&#34;&#34;</pre>
+							<pre class="line before"><span class="ws">        </span>trans = self._transaction</pre>
+							<pre class="line before"><span class="ws">        </span>if trans is None:</pre>
+							<pre
+								class="line before"><span class="ws">            </span>trans = self._autobegin_t()</pre>
+							<pre class="line before"><span class="ws"></span> </pre>
+							<pre class="line current"><span class="ws">        </span>trans.commit(_to_root=True)
+<span class="ws">        </span>^^^^^^^^^^^^^^^^^^^^^^^^^^^</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+							<pre class="line after"><span class="ws">    </span>def prepare(self) -&gt; None:</pre>
+							<pre
+								class="line after"><span class="ws">        </span>&#34;&#34;&#34;Prepare the current transaction in progress for two phase commit.</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+							<pre
+								class="line after"><span class="ws">        </span>If no transaction is in progress, this method raises an</pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966257476816">
+						<h4>File <cite class="filename">"&lt;string&gt;"</cite>,
+							line <em class="line">2</em>,
+							in <code class="function">commit</code></h4>
+						<div class="source "></div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966257476960">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\orm\state_changes.py"</cite>,
+							line <em class="line">137</em>,
+							in <code class="function">_go</code></h4>
+						<div class="source ">
+							<pre class="line before"><span class="ws">                    </span>)</pre>
+							<pre class="line before"><span class="ws"></span> </pre>
+							<pre class="line before"><span class="ws">            </span>self._current_fn = fn</pre>
+							<pre
+								class="line before"><span class="ws">            </span>self._next_state = _StateChangeStates.CHANGE_IN_PROGRESS</pre>
+							<pre class="line before"><span class="ws">            </span>try:</pre>
+							<pre class="line current"><span class="ws">                </span>ret_value = fn(self, *arg, **kw)
+<span class="ws">                </span>            ^^^^^^^^^^^^^^^^^^^^</pre>
+							<pre class="line after"><span class="ws">            </span>except:</pre>
+							<pre class="line after"><span class="ws">                </span>raise</pre>
+							<pre class="line after"><span class="ws">            </span>else:</pre>
+							<pre
+								class="line after"><span class="ws">                </span>if self._state is expect_state:</pre>
+							<pre class="line after"><span class="ws">                    </span>return ret_value</pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966257477248">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\orm\session.py"</cite>,
+							line <em class="line">1221</em>,
+							in <code class="function">commit</code></h4>
+						<div class="source ">
+							<pre
+								class="line before"><span class="ws">        </span>SessionTransactionState.CLOSED,</pre>
+							<pre class="line before"><span class="ws">    </span>)</pre>
+							<pre
+								class="line before"><span class="ws">    </span>def commit(self, _to_root: bool = False) -&gt; None:</pre>
+							<pre
+								class="line before"><span class="ws">        </span>if self._state is not SessionTransactionState.PREPARED:</pre>
+							<pre
+								class="line before"><span class="ws">            </span>with self._expect_state(SessionTransactionState.PREPARED):</pre>
+							<pre class="line current"><span class="ws">                </span>self._prepare_impl()
+<span class="ws">                </span>^^^^^^^^^^^^^^^^^^^^</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+							<pre
+								class="line after"><span class="ws">        </span>if self._parent is None or self.nested:</pre>
+							<pre
+								class="line after"><span class="ws">            </span>for conn, trans, should_commit, autoclose in set(</pre>
+							<pre
+								class="line after"><span class="ws">                </span>self._connections.values()</pre>
+							<pre class="line after"><span class="ws">            </span>):</pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966257477392">
+						<h4>File <cite class="filename">"&lt;string&gt;"</cite>,
+							line <em class="line">2</em>,
+							in <code class="function">_prepare_impl</code></h4>
+						<div class="source "></div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966257477536">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\orm\state_changes.py"</cite>,
+							line <em class="line">137</em>,
+							in <code class="function">_go</code></h4>
+						<div class="source ">
+							<pre class="line before"><span class="ws">                    </span>)</pre>
+							<pre class="line before"><span class="ws"></span> </pre>
+							<pre class="line before"><span class="ws">            </span>self._current_fn = fn</pre>
+							<pre
+								class="line before"><span class="ws">            </span>self._next_state = _StateChangeStates.CHANGE_IN_PROGRESS</pre>
+							<pre class="line before"><span class="ws">            </span>try:</pre>
+							<pre class="line current"><span class="ws">                </span>ret_value = fn(self, *arg, **kw)
+<span class="ws">                </span>            ^^^^^^^^^^^^^^^^^^^^</pre>
+							<pre class="line after"><span class="ws">            </span>except:</pre>
+							<pre class="line after"><span class="ws">                </span>raise</pre>
+							<pre class="line after"><span class="ws">            </span>else:</pre>
+							<pre
+								class="line after"><span class="ws">                </span>if self._state is expect_state:</pre>
+							<pre class="line after"><span class="ws">                    </span>return ret_value</pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966257477680">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\orm\session.py"</cite>,
+							line <em class="line">1196</em>,
+							in <code class="function">_prepare_impl</code></h4>
+						<div class="source ">
+							<pre class="line before"><span class="ws"></span> </pre>
+							<pre
+								class="line before"><span class="ws">        </span>if not self.session._flushing:</pre>
+							<pre
+								class="line before"><span class="ws">            </span>for _flush_guard in range(100):</pre>
+							<pre
+								class="line before"><span class="ws">                </span>if self.session._is_clean():</pre>
+							<pre class="line before"><span class="ws">                    </span>break</pre>
+							<pre class="line current"><span class="ws">                </span>self.session.flush()
+<span class="ws">                </span>^^^^^^^^^^^^^^^^^^^^</pre>
+							<pre class="line after"><span class="ws">            </span>else:</pre>
+							<pre class="line after"><span class="ws">                </span>raise exc.FlushError(</pre>
+							<pre
+								class="line after"><span class="ws">                    </span>&#34;Over 100 subsequent flushes have occurred within &#34;</pre>
+							<pre
+								class="line after"><span class="ws">                    </span>&#34;session.commit() - is an after_flush() hook &#34;</pre>
+							<pre
+								class="line after"><span class="ws">                    </span>&#34;creating new objects?&#34;</pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966257477824">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\orm\session.py"</cite>,
+							line <em class="line">4154</em>,
+							in <code class="function">flush</code></h4>
+						<div class="source ">
+							<pre class="line before"><span class="ws"></span> </pre>
+							<pre class="line before"><span class="ws">        </span>if self._is_clean():</pre>
+							<pre class="line before"><span class="ws">            </span>return</pre>
+							<pre class="line before"><span class="ws">        </span>try:</pre>
+							<pre class="line before"><span class="ws">            </span>self._flushing = True</pre>
+							<pre class="line current"><span class="ws">            </span>self._flush(objects)
+<span class="ws">            </span>^^^^^^^^^^^^^^^^^^^^</pre>
+							<pre class="line after"><span class="ws">        </span>finally:</pre>
+							<pre class="line after"><span class="ws">            </span>self._flushing = False</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+							<pre
+								class="line after"><span class="ws">    </span>def _flush_warning(self, method: Any) -&gt; None:</pre>
+							<pre class="line after"><span class="ws">        </span>util.warn(</pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966257477968">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\orm\session.py"</cite>,
+							line <em class="line">4290</em>,
+							in <code class="function">_flush</code></h4>
+						<div class="source ">
+							<pre
+								class="line before"><span class="ws">            </span>self.dispatch.after_flush_postexec(self, flush_context)</pre>
+							<pre class="line before"><span class="ws"></span> </pre>
+							<pre class="line before"><span class="ws">            </span>transaction.commit()</pre>
+							<pre class="line before"><span class="ws"></span> </pre>
+							<pre class="line before"><span class="ws">        </span>except:</pre>
+							<pre class="line current"><span class="ws">            </span>with util.safe_reraise():
+<span class="ws">            </span>^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</pre>
+							<pre
+								class="line after"><span class="ws">                </span>transaction.rollback(_capture_exception=True)</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+							<pre class="line after"><span class="ws">    </span>def bulk_save_objects(</pre>
+							<pre class="line after"><span class="ws">        </span>self,</pre>
+							<pre class="line after"><span class="ws">        </span>objects: Iterable[object],</pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966257478112">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\util\langhelpers.py"</cite>,
+							line <em class="line">147</em>,
+							in <code class="function">__exit__</code></h4>
+						<div class="source ">
+							<pre class="line before"><span class="ws">        </span># see #2703 for notes</pre>
+							<pre class="line before"><span class="ws">        </span>if type_ is None:</pre>
+							<pre
+								class="line before"><span class="ws">            </span>exc_type, exc_value, exc_tb = self._exc_info</pre>
+							<pre
+								class="line before"><span class="ws">            </span>assert exc_value is not None</pre>
+							<pre
+								class="line before"><span class="ws">            </span>self._exc_info = None  # remove potential circular references</pre>
+							<pre class="line current"><span class="ws">            </span>raise exc_value.with_traceback(exc_tb)
+<span class="ws">            </span>^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</pre>
+							<pre class="line after"><span class="ws">        </span>else:</pre>
+							<pre
+								class="line after"><span class="ws">            </span>self._exc_info = None  # remove potential circular references</pre>
+							<pre class="line after"><span class="ws">            </span>assert value is not None</pre>
+							<pre
+								class="line after"><span class="ws">            </span>raise value.with_traceback(traceback)</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966257479408">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\orm\session.py"</cite>,
+							line <em class="line">4251</em>,
+							in <code class="function">_flush</code></h4>
+						<div class="source ">
+							<pre class="line before"><span class="ws"></span> </pre>
+							<pre
+								class="line before"><span class="ws">        </span>flush_context.transaction = transaction = self._autobegin_t()._begin()</pre>
+							<pre class="line before"><span class="ws">        </span>try:</pre>
+							<pre
+								class="line before"><span class="ws">            </span>self._warn_on_events = True</pre>
+							<pre class="line before"><span class="ws">            </span>try:</pre>
+							<pre class="line current"><span class="ws">                </span>flush_context.execute()
+<span class="ws">                </span>^^^^^^^^^^^^^^^^^^^^^^^</pre>
+							<pre class="line after"><span class="ws">            </span>finally:</pre>
+							<pre
+								class="line after"><span class="ws">                </span>self._warn_on_events = False</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+							<pre
+								class="line after"><span class="ws">            </span>self.dispatch.after_flush(self, flush_context)</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966257479552">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\orm\unitofwork.py"</cite>,
+							line <em class="line">467</em>,
+							in <code class="function">execute</code></h4>
+						<div class="source ">
+							<pre class="line before"><span class="ws">                </span>while set_:</pre>
+							<pre class="line before"><span class="ws">                    </span>n = set_.pop()</pre>
+							<pre
+								class="line before"><span class="ws">                    </span>n.execute_aggregate(self, set_)</pre>
+							<pre class="line before"><span class="ws">        </span>else:</pre>
+							<pre
+								class="line before"><span class="ws">            </span>for rec in topological.sort(self.dependencies, postsort_actions):</pre>
+							<pre class="line current"><span class="ws">                </span>rec.execute(self)
+<span class="ws">                </span>^^^^^^^^^^^^^^^^^</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+							<pre
+								class="line after"><span class="ws">    </span>def finalize_flush_changes(self) -&gt; None:</pre>
+							<pre
+								class="line after"><span class="ws">        </span>&#34;&#34;&#34;Mark processed objects as clean / deleted after a successful</pre>
+							<pre class="line after"><span class="ws">        </span>flush().</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966257479696">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\orm\unitofwork.py"</cite>,
+							line <em class="line">644</em>,
+							in <code class="function">execute</code></h4>
+						<div class="source ">
+							<pre
+								class="line before"><span class="ws">        </span>self.sort_key = (&#34;SaveUpdateAll&#34;, mapper._sort_key)</pre>
+							<pre
+								class="line before"><span class="ws">        </span>assert mapper is mapper.base_mapper</pre>
+							<pre class="line before"><span class="ws"></span> </pre>
+							<pre
+								class="line before"><span class="ws">    </span>@util.preload_module(&#34;sqlalchemy.orm.persistence&#34;)</pre>
+							<pre class="line before"><span class="ws">    </span>def execute(self, uow):</pre>
+							<pre class="line current"><span class="ws">        </span>util.preloaded.orm_persistence.save_obj(
+<span class="ws">        </span>^</pre>
+							<pre class="line after"><span class="ws">            </span>self.mapper,</pre>
+							<pre
+								class="line after"><span class="ws">            </span>uow.states_for_mapper_hierarchy(self.mapper, False, False),</pre>
+							<pre class="line after"><span class="ws">            </span>uow,</pre>
+							<pre class="line after"><span class="ws">        </span>)</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966257479840">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\orm\persistence.py"</cite>,
+							line <em class="line">60</em>,
+							in <code class="function">save_obj</code></h4>
+						<div class="source ">
+							<pre class="line before"><span class="ws">        </span>return</pre>
+							<pre class="line before"><span class="ws"></span> </pre>
+							<pre class="line before"><span class="ws">    </span>states_to_update = []</pre>
+							<pre class="line before"><span class="ws">    </span>states_to_insert = []</pre>
+							<pre class="line before"><span class="ws"></span> </pre>
+							<pre class="line current"><span class="ws">    </span>for (
+<span class="ws">    </span>^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</pre>
+							<pre class="line after"><span class="ws">        </span>state,</pre>
+							<pre class="line after"><span class="ws">        </span>dict_,</pre>
+							<pre class="line after"><span class="ws">        </span>mapper,</pre>
+							<pre class="line after"><span class="ws">        </span>connection,</pre>
+							<pre class="line after"><span class="ws">        </span>has_identity,</pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966257481712">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\orm\persistence.py"</cite>,
+							line <em class="line">221</em>,
+							in <code class="function">_organize_states_for_save</code></h4>
+						<div class="source ">
+							<pre
+								class="line before"><span class="ws">    </span>mapper, the connection to use for the execution per state,</pre>
+							<pre class="line before"><span class="ws">    </span>and the identity flag.</pre>
+							<pre class="line before"><span class="ws"></span> </pre>
+							<pre class="line before"><span class="ws">    </span>&#34;&#34;&#34;</pre>
+							<pre class="line before"><span class="ws"></span> </pre>
+							<pre class="line current"><span class="ws">    </span>for state, dict_, mapper, connection in _connections_for_states(
+<span class="ws">    </span>^^^^^</pre>
+							<pre
+								class="line after"><span class="ws">        </span>base_mapper, uowtransaction, states</pre>
+							<pre class="line after"><span class="ws">    </span>):</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+							<pre class="line after"><span class="ws">        </span>has_identity = bool(state.key)</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966257481856">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\orm\persistence.py"</cite>,
+							line <em class="line">1726</em>,
+							in <code class="function">_connections_for_states</code></h4>
+						<div class="source ">
+							<pre
+								class="line before"><span class="ws">    </span># organize individual states with the connection</pre>
+							<pre class="line before"><span class="ws">    </span># to use for update</pre>
+							<pre
+								class="line before"><span class="ws">    </span>if uowtransaction.session.connection_callable:</pre>
+							<pre
+								class="line before"><span class="ws">        </span>connection_callable = uowtransaction.session.connection_callable</pre>
+							<pre class="line before"><span class="ws">    </span>else:</pre>
+							<pre class="line current"><span class="ws">        </span>connection = uowtransaction.transaction.connection(base_mapper)
+<span class="ws">        </span>             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</pre>
+							<pre class="line after"><span class="ws">        </span>connection_callable = None</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+							<pre
+								class="line after"><span class="ws">    </span>for state in _sort_states(base_mapper, states):</pre>
+							<pre class="line after"><span class="ws">        </span>if connection_callable:</pre>
+							<pre
+								class="line after"><span class="ws">            </span>connection = connection_callable(base_mapper, state.obj())</pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966257482000">
+						<h4>File <cite class="filename">"&lt;string&gt;"</cite>,
+							line <em class="line">2</em>,
+							in <code class="function">connection</code></h4>
+						<div class="source "></div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966257482144">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\orm\state_changes.py"</cite>,
+							line <em class="line">137</em>,
+							in <code class="function">_go</code></h4>
+						<div class="source ">
+							<pre class="line before"><span class="ws">                    </span>)</pre>
+							<pre class="line before"><span class="ws"></span> </pre>
+							<pre class="line before"><span class="ws">            </span>self._current_fn = fn</pre>
+							<pre
+								class="line before"><span class="ws">            </span>self._next_state = _StateChangeStates.CHANGE_IN_PROGRESS</pre>
+							<pre class="line before"><span class="ws">            </span>try:</pre>
+							<pre class="line current"><span class="ws">                </span>ret_value = fn(self, *arg, **kw)
+<span class="ws">                </span>            ^^^^^^^^^^^^^^^^^^^^</pre>
+							<pre class="line after"><span class="ws">            </span>except:</pre>
+							<pre class="line after"><span class="ws">                </span>raise</pre>
+							<pre class="line after"><span class="ws">            </span>else:</pre>
+							<pre
+								class="line after"><span class="ws">                </span>if self._state is expect_state:</pre>
+							<pre class="line after"><span class="ws">                    </span>return ret_value</pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966257482288">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\orm\session.py"</cite>,
+							line <em class="line">966</em>,
+							in <code class="function">connection</code></h4>
+						<div class="source ">
+							<pre
+								class="line before"><span class="ws">        </span>bindkey: Optional[Mapper[Any]],</pre>
+							<pre
+								class="line before"><span class="ws">        </span>execution_options: Optional[_ExecuteOptions] = None,</pre>
+							<pre class="line before"><span class="ws">        </span>**kwargs: Any,</pre>
+							<pre class="line before"><span class="ws">    </span>) -&gt; Connection:</pre>
+							<pre
+								class="line before"><span class="ws">        </span>bind = self.session.get_bind(bindkey, **kwargs)</pre>
+							<pre class="line current"><span class="ws">        </span>return self._connection_for_bind(bind, execution_options)
+<span class="ws">        </span>       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+							<pre class="line after"><span class="ws">    </span>@_StateChange.declare_states(</pre>
+							<pre
+								class="line after"><span class="ws">        </span>(SessionTransactionState.ACTIVE,), _StateChangeStates.NO_CHANGE</pre>
+							<pre class="line after"><span class="ws">    </span>)</pre>
+							<pre
+								class="line after"><span class="ws">    </span>def _begin(self, nested: bool = False) -&gt; SessionTransaction:</pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966257482432">
+						<h4>File <cite class="filename">"&lt;string&gt;"</cite>,
+							line <em class="line">2</em>,
+							in <code class="function">_connection_for_bind</code></h4>
+						<div class="source "></div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966257482576">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\orm\state_changes.py"</cite>,
+							line <em class="line">137</em>,
+							in <code class="function">_go</code></h4>
+						<div class="source ">
+							<pre class="line before"><span class="ws">                    </span>)</pre>
+							<pre class="line before"><span class="ws"></span> </pre>
+							<pre class="line before"><span class="ws">            </span>self._current_fn = fn</pre>
+							<pre
+								class="line before"><span class="ws">            </span>self._next_state = _StateChangeStates.CHANGE_IN_PROGRESS</pre>
+							<pre class="line before"><span class="ws">            </span>try:</pre>
+							<pre class="line current"><span class="ws">                </span>ret_value = fn(self, *arg, **kw)
+<span class="ws">                </span>            ^^^^^^^^^^^^^^^^^^^^</pre>
+							<pre class="line after"><span class="ws">            </span>except:</pre>
+							<pre class="line after"><span class="ws">                </span>raise</pre>
+							<pre class="line after"><span class="ws">            </span>else:</pre>
+							<pre
+								class="line after"><span class="ws">                </span>if self._state is expect_state:</pre>
+							<pre class="line after"><span class="ws">                    </span>return ret_value</pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966257482720">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\orm\session.py"</cite>,
+							line <em class="line">1099</em>,
+							in <code class="function">_connection_for_bind</code></h4>
+						<div class="source ">
+							<pre class="line before"><span class="ws"></span> </pre>
+							<pre class="line before"><span class="ws">        </span>local_connect = False</pre>
+							<pre class="line before"><span class="ws">        </span>should_commit = True</pre>
+							<pre class="line before"><span class="ws"></span> </pre>
+							<pre class="line before"><span class="ws">        </span>if self._parent:</pre>
+							<pre class="line current"><span class="ws">            </span>conn = self._parent._connection_for_bind(bind, execution_options)
+<span class="ws">            </span>       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</pre>
+							<pre class="line after"><span class="ws">            </span>if not self.nested:</pre>
+							<pre class="line after"><span class="ws">                </span>return conn</pre>
+							<pre class="line after"><span class="ws">        </span>else:</pre>
+							<pre
+								class="line after"><span class="ws">            </span>if isinstance(bind, engine.Connection):</pre>
+							<pre class="line after"><span class="ws">                </span>conn = bind</pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966257482864">
+						<h4>File <cite class="filename">"&lt;string&gt;"</cite>,
+							line <em class="line">2</em>,
+							in <code class="function">_connection_for_bind</code></h4>
+						<div class="source "></div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966257483008">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\orm\state_changes.py"</cite>,
+							line <em class="line">137</em>,
+							in <code class="function">_go</code></h4>
+						<div class="source ">
+							<pre class="line before"><span class="ws">                    </span>)</pre>
+							<pre class="line before"><span class="ws"></span> </pre>
+							<pre class="line before"><span class="ws">            </span>self._current_fn = fn</pre>
+							<pre
+								class="line before"><span class="ws">            </span>self._next_state = _StateChangeStates.CHANGE_IN_PROGRESS</pre>
+							<pre class="line before"><span class="ws">            </span>try:</pre>
+							<pre class="line current"><span class="ws">                </span>ret_value = fn(self, *arg, **kw)
+<span class="ws">                </span>            ^^^^^^^^^^^^^^^^^^^^</pre>
+							<pre class="line after"><span class="ws">            </span>except:</pre>
+							<pre class="line after"><span class="ws">                </span>raise</pre>
+							<pre class="line after"><span class="ws">            </span>else:</pre>
+							<pre
+								class="line after"><span class="ws">                </span>if self._state is expect_state:</pre>
+							<pre class="line after"><span class="ws">                    </span>return ret_value</pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966257483152">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\orm\session.py"</cite>,
+							line <em class="line">1111</em>,
+							in <code class="function">_connection_for_bind</code></h4>
+						<div class="source ">
+							<pre
+								class="line before"><span class="ws">                    </span>raise sa_exc.InvalidRequestError(</pre>
+							<pre
+								class="line before"><span class="ws">                        </span>&#34;Session already has a Connection associated for the &#34;</pre>
+							<pre
+								class="line before"><span class="ws">                        </span>&#34;given Connection&#39;s Engine&#34;</pre>
+							<pre class="line before"><span class="ws">                    </span>)</pre>
+							<pre class="line before"><span class="ws">            </span>else:</pre>
+							<pre class="line current"><span class="ws">                </span>conn = bind.connect()
+<span class="ws">                </span>       ^^^^^^^^^^^^^^</pre>
+							<pre class="line after"><span class="ws">                </span>local_connect = True</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+							<pre class="line after"><span class="ws">        </span>try:</pre>
+							<pre class="line after"><span class="ws">            </span>if execution_options:</pre>
+							<pre
+								class="line after"><span class="ws">                </span>conn = conn.execution_options(**execution_options)</pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966257483296">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\engine\base.py"</cite>,
+							line <em class="line">3269</em>,
+							in <code class="function">connect</code></h4>
+						<div class="source ">
+							<pre class="line before"><span class="ws"></span> </pre>
+							<pre
+								class="line before"><span class="ws">            </span>:meth:`_engine.Engine.begin`</pre>
+							<pre class="line before"><span class="ws"></span> </pre>
+							<pre class="line before"><span class="ws">        </span>&#34;&#34;&#34;</pre>
+							<pre class="line before"><span class="ws"></span> </pre>
+							<pre class="line current"><span class="ws">        </span>return self._connection_cls(self)
+<span class="ws">        </span>       ^^^^^^^^^^^^^^^^^^^^^^^^^^</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+							<pre
+								class="line after"><span class="ws">    </span>def raw_connection(self) -&gt; PoolProxiedConnection:</pre>
+							<pre
+								class="line after"><span class="ws">        </span>&#34;&#34;&#34;Return a &#34;raw&#34; DBAPI connection from the connection pool.</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+							<pre
+								class="line after"><span class="ws">        </span>The returned object is a proxied version of the DBAPI</pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966260586608">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\engine\base.py"</cite>,
+							line <em class="line">147</em>,
+							in <code class="function">__init__</code></h4>
+						<div class="source ">
+							<pre class="line before"><span class="ws"></span> </pre>
+							<pre class="line before"><span class="ws">        </span>if connection is None:</pre>
+							<pre class="line before"><span class="ws">            </span>try:</pre>
+							<pre
+								class="line before"><span class="ws">                </span>self._dbapi_connection = engine.raw_connection()</pre>
+							<pre
+								class="line before"><span class="ws">            </span>except dialect.loaded_dbapi.Error as err:</pre>
+							<pre class="line current"><span class="ws">                </span>Connection._handle_dbapi_exception_noconnection(
+<span class="ws">                </span>^</pre>
+							<pre
+								class="line after"><span class="ws">                    </span>err, dialect, engine</pre>
+							<pre class="line after"><span class="ws">                </span>)</pre>
+							<pre class="line after"><span class="ws">                </span>raise</pre>
+							<pre class="line after"><span class="ws">        </span>else:</pre>
+							<pre
+								class="line after"><span class="ws">            </span>self._dbapi_connection = connection</pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966260586752">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\engine\base.py"</cite>,
+							line <em class="line">2431</em>,
+							in <code class="function">_handle_dbapi_exception_noconnection</code></h4>
+						<div class="source ">
+							<pre class="line before"><span class="ws"></span> </pre>
+							<pre class="line before"><span class="ws">        </span>if newraise:</pre>
+							<pre
+								class="line before"><span class="ws">            </span>raise newraise.with_traceback(exc_info[2]) from e</pre>
+							<pre class="line before"><span class="ws">        </span>elif should_wrap:</pre>
+							<pre
+								class="line before"><span class="ws">            </span>assert sqlalchemy_exception is not None</pre>
+							<pre class="line current"><span class="ws">            </span>raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+<span class="ws">            </span>^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</pre>
+							<pre class="line after"><span class="ws">        </span>else:</pre>
+							<pre
+								class="line after"><span class="ws">            </span>assert exc_info[1] is not None</pre>
+							<pre
+								class="line after"><span class="ws">            </span>raise exc_info[1].with_traceback(exc_info[2])</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+							<pre class="line after"><span class="ws">    </span>def _run_ddl_visitor(</pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966260586896">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\engine\base.py"</cite>,
+							line <em class="line">145</em>,
+							in <code class="function">__init__</code></h4>
+						<div class="source ">
+							<pre class="line before"><span class="ws">        </span>self.engine = engine</pre>
+							<pre
+								class="line before"><span class="ws">        </span>self.dialect = dialect = engine.dialect</pre>
+							<pre class="line before"><span class="ws"></span> </pre>
+							<pre class="line before"><span class="ws">        </span>if connection is None:</pre>
+							<pre class="line before"><span class="ws">            </span>try:</pre>
+							<pre class="line current"><span class="ws">                </span>self._dbapi_connection = engine.raw_connection()
+<span class="ws">                </span>                         ^^^^^^^^^^^^^^^^^^^^^^^</pre>
+							<pre
+								class="line after"><span class="ws">            </span>except dialect.loaded_dbapi.Error as err:</pre>
+							<pre
+								class="line after"><span class="ws">                </span>Connection._handle_dbapi_exception_noconnection(</pre>
+							<pre
+								class="line after"><span class="ws">                    </span>err, dialect, engine</pre>
+							<pre class="line after"><span class="ws">                </span>)</pre>
+							<pre class="line after"><span class="ws">                </span>raise</pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966260587040">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\engine\base.py"</cite>,
+							line <em class="line">3293</em>,
+							in <code class="function">raw_connection</code></h4>
+						<div class="source ">
+							<pre class="line before"><span class="ws">        </span>.. seealso::</pre>
+							<pre class="line before"><span class="ws"></span> </pre>
+							<pre class="line before"><span class="ws">            </span>:ref:`dbapi_connections`</pre>
+							<pre class="line before"><span class="ws"></span> </pre>
+							<pre class="line before"><span class="ws">        </span>&#34;&#34;&#34;</pre>
+							<pre class="line current"><span class="ws">        </span>return self.pool.connect()
+<span class="ws">        </span>       ^^^^^^^^^^^^^^^^^^^</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+							<pre
+								class="line after"><span class="ws"></span>class OptionEngineMixin(log.Identified):</pre>
+							<pre class="line after"><span class="ws">    </span>_sa_propagate_class_events = False</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966260587184">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\pool\base.py"</cite>,
+							line <em class="line">452</em>,
+							in <code class="function">connect</code></h4>
+						<div class="source ">
+							<pre
+								class="line before"><span class="ws">        </span>The connection is instrumented such that when its</pre>
+							<pre
+								class="line before"><span class="ws">        </span>``close()`` method is called, the connection will be returned to</pre>
+							<pre class="line before"><span class="ws">        </span>the pool.</pre>
+							<pre class="line before"><span class="ws"></span> </pre>
+							<pre class="line before"><span class="ws">        </span>&#34;&#34;&#34;</pre>
+							<pre class="line current"><span class="ws">        </span>return _ConnectionFairy._checkout(self)
+<span class="ws">        </span>       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+							<pre
+								class="line after"><span class="ws">    </span>def _return_conn(self, record: ConnectionPoolEntry) -&gt; None:</pre>
+							<pre
+								class="line after"><span class="ws">        </span>&#34;&#34;&#34;Given a _ConnectionRecord, return it to the :class:`_pool.Pool`.</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+							<pre
+								class="line after"><span class="ws">        </span>This method is called when an instrumented DBAPI connection</pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966260589344">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\pool\base.py"</cite>,
+							line <em class="line">1268</em>,
+							in <code class="function">_checkout</code></h4>
+						<div class="source ">
+							<pre
+								class="line before"><span class="ws">        </span>threadconns: Optional[threading.local] = None,</pre>
+							<pre
+								class="line before"><span class="ws">        </span>fairy: Optional[_ConnectionFairy] = None,</pre>
+							<pre class="line before"><span class="ws">    </span>) -&gt; _ConnectionFairy:</pre>
+							<pre class="line before"><span class="ws"></span> </pre>
+							<pre class="line before"><span class="ws">        </span>if not fairy:</pre>
+							<pre class="line current"><span class="ws">            </span>fairy = _ConnectionRecord.checkout(pool)
+<span class="ws">            </span>        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+							<pre
+								class="line after"><span class="ws">            </span>if threadconns is not None:</pre>
+							<pre
+								class="line after"><span class="ws">                </span>threadconns.current = weakref.ref(fairy)</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+							<pre class="line after"><span class="ws">        </span>assert (</pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966260589488">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\pool\base.py"</cite>,
+							line <em class="line">716</em>,
+							in <code class="function">checkout</code></h4>
+						<div class="source ">
+							<pre class="line before"><span class="ws">    </span>@classmethod</pre>
+							<pre
+								class="line before"><span class="ws">    </span>def checkout(cls, pool: Pool) -&gt; _ConnectionFairy:</pre>
+							<pre class="line before"><span class="ws">        </span>if TYPE_CHECKING:</pre>
+							<pre
+								class="line before"><span class="ws">            </span>rec = cast(_ConnectionRecord, pool._do_get())</pre>
+							<pre class="line before"><span class="ws">        </span>else:</pre>
+							<pre class="line current"><span class="ws">            </span>rec = pool._do_get()
+<span class="ws">            </span>      ^^^^^^^^^^^^^^</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+							<pre class="line after"><span class="ws">        </span>try:</pre>
+							<pre
+								class="line after"><span class="ws">            </span>dbapi_connection = rec.get_connection()</pre>
+							<pre class="line after"><span class="ws">        </span>except BaseException as err:</pre>
+							<pre class="line after"><span class="ws">            </span>with util.safe_reraise():</pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966260589632">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\pool\impl.py"</cite>,
+							line <em class="line">168</em>,
+							in <code class="function">_do_get</code></h4>
+						<div class="source ">
+							<pre class="line before"><span class="ws"></span> </pre>
+							<pre class="line before"><span class="ws">        </span>if self._inc_overflow():</pre>
+							<pre class="line before"><span class="ws">            </span>try:</pre>
+							<pre
+								class="line before"><span class="ws">                </span>return self._create_connection()</pre>
+							<pre class="line before"><span class="ws">            </span>except:</pre>
+							<pre class="line current"><span class="ws">                </span>with util.safe_reraise():
+<span class="ws">                </span>^^^^^^^^^^^^^^^^^^^^^^^^</pre>
+							<pre
+								class="line after"><span class="ws">                    </span>self._dec_overflow()</pre>
+							<pre class="line after"><span class="ws">                </span>raise</pre>
+							<pre class="line after"><span class="ws">        </span>else:</pre>
+							<pre class="line after"><span class="ws">            </span>return self._do_get()</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966260589776">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\util\langhelpers.py"</cite>,
+							line <em class="line">147</em>,
+							in <code class="function">__exit__</code></h4>
+						<div class="source ">
+							<pre class="line before"><span class="ws">        </span># see #2703 for notes</pre>
+							<pre class="line before"><span class="ws">        </span>if type_ is None:</pre>
+							<pre
+								class="line before"><span class="ws">            </span>exc_type, exc_value, exc_tb = self._exc_info</pre>
+							<pre
+								class="line before"><span class="ws">            </span>assert exc_value is not None</pre>
+							<pre
+								class="line before"><span class="ws">            </span>self._exc_info = None  # remove potential circular references</pre>
+							<pre class="line current"><span class="ws">            </span>raise exc_value.with_traceback(exc_tb)
+<span class="ws">            </span>^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</pre>
+							<pre class="line after"><span class="ws">        </span>else:</pre>
+							<pre
+								class="line after"><span class="ws">            </span>self._exc_info = None  # remove potential circular references</pre>
+							<pre class="line after"><span class="ws">            </span>assert value is not None</pre>
+							<pre
+								class="line after"><span class="ws">            </span>raise value.with_traceback(traceback)</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966260589920">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\pool\impl.py"</cite>,
+							line <em class="line">166</em>,
+							in <code class="function">_do_get</code></h4>
+						<div class="source ">
+							<pre
+								class="line before"><span class="ws">                    </span>code=&#34;3o7r&#34;,</pre>
+							<pre class="line before"><span class="ws">                </span>)</pre>
+							<pre class="line before"><span class="ws"></span> </pre>
+							<pre class="line before"><span class="ws">        </span>if self._inc_overflow():</pre>
+							<pre class="line before"><span class="ws">            </span>try:</pre>
+							<pre class="line current"><span class="ws">                </span>return self._create_connection()
+<span class="ws">                </span>       ^^^^^^^^^^^^^^^^^^^^^^^^^</pre>
+							<pre class="line after"><span class="ws">            </span>except:</pre>
+							<pre
+								class="line after"><span class="ws">                </span>with util.safe_reraise():</pre>
+							<pre
+								class="line after"><span class="ws">                    </span>self._dec_overflow()</pre>
+							<pre class="line after"><span class="ws">                </span>raise</pre>
+							<pre class="line after"><span class="ws">        </span>else:</pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966260590064">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\pool\base.py"</cite>,
+							line <em class="line">393</em>,
+							in <code class="function">_create_connection</code></h4>
+						<div class="source ">
+							<pre class="line before"><span class="ws">                </span>raise</pre>
+							<pre class="line before"><span class="ws"></span> </pre>
+							<pre
+								class="line before"><span class="ws">    </span>def _create_connection(self) -&gt; ConnectionPoolEntry:</pre>
+							<pre
+								class="line before"><span class="ws">        </span>&#34;&#34;&#34;Called by subclasses to create a new ConnectionRecord.&#34;&#34;&#34;</pre>
+							<pre class="line before"><span class="ws"></span> </pre>
+							<pre class="line current"><span class="ws">        </span>return _ConnectionRecord(self)
+<span class="ws">        </span>       ^^^^^^^^^^^^^^^^^^^^^^^</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+							<pre class="line after"><span class="ws">    </span>def _invalidate(</pre>
+							<pre class="line after"><span class="ws">        </span>self,</pre>
+							<pre
+								class="line after"><span class="ws">        </span>connection: PoolProxiedConnection,</pre>
+							<pre
+								class="line after"><span class="ws">        </span>exception: Optional[BaseException] = None,</pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966260590208">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\pool\base.py"</cite>,
+							line <em class="line">678</em>,
+							in <code class="function">__init__</code></h4>
+						<div class="source ">
+							<pre class="line before"><span class="ws">        </span>self.starttime = 0</pre>
+							<pre class="line before"><span class="ws">        </span>self.dbapi_connection = None</pre>
+							<pre class="line before"><span class="ws"></span> </pre>
+							<pre class="line before"><span class="ws">        </span>self.__pool = pool</pre>
+							<pre class="line before"><span class="ws">        </span>if connect:</pre>
+							<pre class="line current"><span class="ws">            </span>self.__connect()
+<span class="ws">            </span>^^^^^^^^^^^^^^^^</pre>
+							<pre
+								class="line after"><span class="ws">        </span>self.finalize_callback = deque()</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+							<pre
+								class="line after"><span class="ws">    </span>dbapi_connection: Optional[DBAPIConnection]</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+							<pre class="line after"><span class="ws">    </span>@property</pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966260590352">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\pool\base.py"</cite>,
+							line <em class="line">902</em>,
+							in <code class="function">__connect</code></h4>
+						<div class="source ">
+							<pre
+								class="line before"><span class="ws">            </span>self.starttime = time.time()</pre>
+							<pre
+								class="line before"><span class="ws">            </span>self.dbapi_connection = connection = pool._invoke_creator(self)</pre>
+							<pre
+								class="line before"><span class="ws">            </span>pool.logger.debug(&#34;Created new connection %r&#34;, connection)</pre>
+							<pre class="line before"><span class="ws">            </span>self.fresh = True</pre>
+							<pre class="line before"><span class="ws">        </span>except BaseException as e:</pre>
+							<pre class="line current"><span class="ws">            </span>with util.safe_reraise():
+<span class="ws">            </span>^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</pre>
+							<pre
+								class="line after"><span class="ws">                </span>pool.logger.debug(&#34;Error on connect(): %s&#34;, e)</pre>
+							<pre class="line after"><span class="ws">        </span>else:</pre>
+							<pre
+								class="line after"><span class="ws">            </span># in SQLAlchemy 1.4 the first_connect event is not used by</pre>
+							<pre
+								class="line after"><span class="ws">            </span># the engine, so this will usually not be set</pre>
+							<pre
+								class="line after"><span class="ws">            </span>if pool.dispatch.first_connect:</pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966260590496">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\util\langhelpers.py"</cite>,
+							line <em class="line">147</em>,
+							in <code class="function">__exit__</code></h4>
+						<div class="source ">
+							<pre class="line before"><span class="ws">        </span># see #2703 for notes</pre>
+							<pre class="line before"><span class="ws">        </span>if type_ is None:</pre>
+							<pre
+								class="line before"><span class="ws">            </span>exc_type, exc_value, exc_tb = self._exc_info</pre>
+							<pre
+								class="line before"><span class="ws">            </span>assert exc_value is not None</pre>
+							<pre
+								class="line before"><span class="ws">            </span>self._exc_info = None  # remove potential circular references</pre>
+							<pre class="line current"><span class="ws">            </span>raise exc_value.with_traceback(exc_tb)
+<span class="ws">            </span>^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</pre>
+							<pre class="line after"><span class="ws">        </span>else:</pre>
+							<pre
+								class="line after"><span class="ws">            </span>self._exc_info = None  # remove potential circular references</pre>
+							<pre class="line after"><span class="ws">            </span>assert value is not None</pre>
+							<pre
+								class="line after"><span class="ws">            </span>raise value.with_traceback(traceback)</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966260590640">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\pool\base.py"</cite>,
+							line <em class="line">898</em>,
+							in <code class="function">__connect</code></h4>
+						<div class="source ">
+							<pre
+								class="line before"><span class="ws">        </span># ensure any existing connection is removed, so that if</pre>
+							<pre
+								class="line before"><span class="ws">        </span># creator fails, this attribute stays None</pre>
+							<pre class="line before"><span class="ws">        </span>self.dbapi_connection = None</pre>
+							<pre class="line before"><span class="ws">        </span>try:</pre>
+							<pre
+								class="line before"><span class="ws">            </span>self.starttime = time.time()</pre>
+							<pre class="line current"><span class="ws">            </span>self.dbapi_connection = connection = pool._invoke_creator(self)
+<span class="ws">            </span>                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^</pre>
+							<pre
+								class="line after"><span class="ws">            </span>pool.logger.debug(&#34;Created new connection %r&#34;, connection)</pre>
+							<pre class="line after"><span class="ws">            </span>self.fresh = True</pre>
+							<pre class="line after"><span class="ws">        </span>except BaseException as e:</pre>
+							<pre class="line after"><span class="ws">            </span>with util.safe_reraise():</pre>
+							<pre
+								class="line after"><span class="ws">                </span>pool.logger.debug(&#34;Error on connect(): %s&#34;, e)</pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966260590784">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\engine\create.py"</cite>,
+							line <em class="line">637</em>,
+							in <code class="function">connect</code></h4>
+						<div class="source ">
+							<pre
+								class="line before"><span class="ws">                        </span>fn(dialect, connection_record, cargs, cparams),</pre>
+							<pre class="line before"><span class="ws">                    </span>)</pre>
+							<pre
+								class="line before"><span class="ws">                    </span>if connection is not None:</pre>
+							<pre
+								class="line before"><span class="ws">                        </span>return connection</pre>
+							<pre class="line before"><span class="ws"></span> </pre>
+							<pre class="line current"><span class="ws">            </span>return dialect.connect(*cargs, **cparams)
+<span class="ws">            </span>       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+							<pre
+								class="line after"><span class="ws">        </span>creator = pop_kwarg(&#34;creator&#34;, connect)</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+							<pre
+								class="line after"><span class="ws">        </span>poolclass = pop_kwarg(&#34;poolclass&#34;, None)</pre>
+							<pre class="line after"><span class="ws">        </span>if poolclass is None:</pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966260592080">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\engine\default.py"</cite>,
+							line <em class="line">616</em>,
+							in <code class="function">connect</code></h4>
+						<div class="source ">
+							<pre
+								class="line before"><span class="ws">                </span>% (ident, self.max_identifier_length)</pre>
+							<pre class="line before"><span class="ws">            </span>)</pre>
+							<pre class="line before"><span class="ws"></span> </pre>
+							<pre
+								class="line before"><span class="ws">    </span>def connect(self, *cargs, **cparams):</pre>
+							<pre
+								class="line before"><span class="ws">        </span># inherits the docstring from interfaces.Dialect.connect</pre>
+							<pre class="line current"><span class="ws">        </span>return self.loaded_dbapi.connect(*cargs, **cparams)
+<span class="ws">        </span>       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+							<pre
+								class="line after"><span class="ws">    </span>def create_connect_args(self, url):</pre>
+							<pre
+								class="line after"><span class="ws">        </span># inherits the docstring from interfaces.Dialect.create_connect_args</pre>
+							<pre
+								class="line after"><span class="ws">        </span>opts = url.translate_connect_args()</pre>
+							<pre class="line after"><span class="ws">        </span>opts.update(url.query)</pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966260594672">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\MySQLdb\__init__.py"</cite>,
+							line <em class="line">123</em>,
+							in <code class="function">Connect</code></h4>
+						<div class="source ">
+							<pre class="line before"><span class="ws"></span> </pre>
+							<pre class="line before"><span class="ws"></span>def Connect(*args, **kwargs):</pre>
+							<pre
+								class="line before"><span class="ws">    </span>&#34;&#34;&#34;Factory function for connections.Connection.&#34;&#34;&#34;</pre>
+							<pre
+								class="line before"><span class="ws">    </span>from MySQLdb.connections import Connection</pre>
+							<pre class="line before"><span class="ws"></span> </pre>
+							<pre class="line current"><span class="ws">    </span>return Connection(*args, **kwargs)
+<span class="ws">    </span>       ^^^^^^^^^^^^^^^^^^^^^^^^^^^</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+							<pre class="line after"><span class="ws"></span>connect = Connection = Connect</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+							<pre class="line after"><span class="ws"></span>__all__ = [</pre>
+						</div>
+					</div>
+
+				<li>
+					<div class="frame" id="frame-2966260594960">
+						<h4>File
+							<cite class="filename">"C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\MySQLdb\connections.py"</cite>,
+							line <em class="line">185</em>,
+							in <code class="function">__init__</code></h4>
+						<div class="source ">
+							<pre
+								class="line before"><span class="ws">        </span>kwargs2[&#34;client_flag&#34;] = client_flag</pre>
+							<pre class="line before"><span class="ws"></span> </pre>
+							<pre
+								class="line before"><span class="ws">        </span># PEP-249 requires autocommit to be initially off</pre>
+							<pre
+								class="line before"><span class="ws">        </span>autocommit = kwargs2.pop(&#34;autocommit&#34;, False)</pre>
+							<pre class="line before"><span class="ws"></span> </pre>
+							<pre class="line current"><span class="ws">        </span>super().__init__(*args, **kwargs2)
+<span class="ws">        </span>^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</pre>
+							<pre class="line after"><span class="ws">        </span>self.cursorclass = cursorclass</pre>
+							<pre
+								class="line after"><span class="ws">        </span>self.encoders = {k: v for k, v in conv.items() if type(k) is not int}</pre>
+							<pre class="line after"><span class="ws"></span> </pre>
+							<pre class="line after"><span class="ws">        </span>self._server_version = tuple(</pre>
+							<pre
+								class="line after"><span class="ws">            </span>[numeric_part(n) for n in self.get_server_info().split(&#34;.&#34;)[:2]]</pre>
+						</div>
+					</div>
+			</ul>
+			<blockquote>sqlalchemy.exc.OperationalError: (MySQLdb.OperationalError) (1045, &#34;Access denied for user
+				&#39;jose.euclides&#39;@&#39;localhost&#39; (using password: NO)&#34;)
+				(Background on this error at: https://sqlalche.me/e/20/e3q8)
+			</blockquote>
+		</div>
+
+		<div class="plain">
+			<p>
+				This is the Copy/Paste friendly version of the traceback.
+			</p>
+			<textarea cols="50" rows="10" name="code" readonly>Traceback (most recent call last):
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\engine\base.py&#34;, line 145, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\engine\base.py&#34;, line 3293, in raw_connection
+    return self.pool.connect()
+           ^^^^^^^^^^^^^^^^^^^
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\pool\base.py&#34;, line 452, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\pool\base.py&#34;, line 1268, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\pool\base.py&#34;, line 716, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\pool\impl.py&#34;, line 168, in _do_get
+    with util.safe_reraise():
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\util\langhelpers.py&#34;, line 147, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\pool\impl.py&#34;, line 166, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\pool\base.py&#34;, line 393, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\pool\base.py&#34;, line 678, in __init__
+    self.__connect()
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\pool\base.py&#34;, line 902, in __connect
+    with util.safe_reraise():
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\util\langhelpers.py&#34;, line 147, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\pool\base.py&#34;, line 898, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\engine\create.py&#34;, line 637, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\engine\default.py&#34;, line 616, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\MySQLdb\__init__.py&#34;, line 123, in Connect
+    return Connection(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\MySQLdb\connections.py&#34;, line 185, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb.OperationalError: (1045, &#34;Access denied for user &#39;jose.euclides&#39;@&#39;localhost&#39; (using password: NO)&#34;)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\flask\app.py&#34;, line 2213, in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\flask\app.py&#34;, line 2193, in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\flask\app.py&#34;, line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\flask\app.py&#34;, line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\flask\app.py&#34;, line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\flask\app.py&#34;, line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &#34;c:\Users\Jose Euclides\Desktop\Programação\Python\Bot\backend\app.py&#34;, line 59, in executar
+    db.session.commit()
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\orm\scoping.py&#34;, line 553, in commit
+    return self._proxied.commit()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\orm\session.py&#34;, line 1906, in commit
+    trans.commit(_to_root=True)
+  File &#34;&lt;string&gt;&#34;, line 2, in commit
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\orm\state_changes.py&#34;, line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\orm\session.py&#34;, line 1221, in commit
+    self._prepare_impl()
+  File &#34;&lt;string&gt;&#34;, line 2, in _prepare_impl
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\orm\state_changes.py&#34;, line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\orm\session.py&#34;, line 1196, in _prepare_impl
+    self.session.flush()
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\orm\session.py&#34;, line 4154, in flush
+    self._flush(objects)
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\orm\session.py&#34;, line 4290, in _flush
+    with util.safe_reraise():
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\util\langhelpers.py&#34;, line 147, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\orm\session.py&#34;, line 4251, in _flush
+    flush_context.execute()
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\orm\unitofwork.py&#34;, line 467, in execute
+    rec.execute(self)
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\orm\unitofwork.py&#34;, line 644, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\orm\persistence.py&#34;, line 60, in save_obj
+    for (
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\orm\persistence.py&#34;, line 221, in _organize_states_for_save
+    for state, dict_, mapper, connection in _connections_for_states(
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\orm\persistence.py&#34;, line 1726, in _connections_for_states
+    connection = uowtransaction.transaction.connection(base_mapper)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &#34;&lt;string&gt;&#34;, line 2, in connection
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\orm\state_changes.py&#34;, line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\orm\session.py&#34;, line 966, in connection
+    return self._connection_for_bind(bind, execution_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &#34;&lt;string&gt;&#34;, line 2, in _connection_for_bind
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\orm\state_changes.py&#34;, line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\orm\session.py&#34;, line 1099, in _connection_for_bind
+    conn = self._parent._connection_for_bind(bind, execution_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &#34;&lt;string&gt;&#34;, line 2, in _connection_for_bind
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\orm\state_changes.py&#34;, line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\orm\session.py&#34;, line 1111, in _connection_for_bind
+    conn = bind.connect()
+           ^^^^^^^^^^^^^^
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\engine\base.py&#34;, line 3269, in connect
+    return self._connection_cls(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\engine\base.py&#34;, line 147, in __init__
+    Connection._handle_dbapi_exception_noconnection(
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\engine\base.py&#34;, line 2431, in _handle_dbapi_exception_noconnection
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\engine\base.py&#34;, line 145, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\engine\base.py&#34;, line 3293, in raw_connection
+    return self.pool.connect()
+           ^^^^^^^^^^^^^^^^^^^
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\pool\base.py&#34;, line 452, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\pool\base.py&#34;, line 1268, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\pool\base.py&#34;, line 716, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\pool\impl.py&#34;, line 168, in _do_get
+    with util.safe_reraise():
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\util\langhelpers.py&#34;, line 147, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\pool\impl.py&#34;, line 166, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\pool\base.py&#34;, line 393, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\pool\base.py&#34;, line 678, in __init__
+    self.__connect()
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\pool\base.py&#34;, line 902, in __connect
+    with util.safe_reraise():
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\util\langhelpers.py&#34;, line 147, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\pool\base.py&#34;, line 898, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\engine\create.py&#34;, line 637, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\engine\default.py&#34;, line 616, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\MySQLdb\__init__.py&#34;, line 123, in Connect
+    return Connection(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &#34;C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\MySQLdb\connections.py&#34;, line 185, in __init__
+    super().__init__(*args, **kwargs2)
+sqlalchemy.exc.OperationalError: (MySQLdb.OperationalError) (1045, &#34;Access denied for user &#39;jose.euclides&#39;@&#39;localhost&#39; (using password: NO)&#34;)
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+</textarea>
+		</div>
+		<div class="explanation">
+			The debugger caught an exception in your WSGI application. You can now
+			look at the traceback which led to the error. <span class="nojavascript">
+  If you enable JavaScript you can also use additional features such as code
+  execution (if the evalex feature is enabled), automatic pasting of the
+  exceptions and much more.</span>
+		</div>
+		<div class="footer">
+			Brought to you by <strong class="arthur">DON'T PANIC</strong>, your
+			friendly Werkzeug powered traceback interpreter.
+		</div>
+	</div>
+
+	<div class="pin-prompt">
+		<div class="inner">
+			<h3>Console Locked</h3>
+			<p>
+				The console is locked and needs to be unlocked by entering the PIN.
+				You can find the PIN printed out on the standard output of your
+				shell that runs the server.
+				<form>
+					<p>PIN:
+						<input type=text name=pin size=14>
+						<input type=submit name=btn value="Confirm Pin">
+        </form>
+		</div>
+	</div>
+</body>
+
+</html>
+
+<!--
+
+Traceback (most recent call last):
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\engine\base.py", line 145, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\engine\base.py", line 3293, in raw_connection
+    return self.pool.connect()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\pool\base.py", line 452, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\pool\base.py", line 1268, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\pool\base.py", line 716, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\pool\impl.py", line 168, in _do_get
+    with util.safe_reraise():
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\util\langhelpers.py", line 147, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\pool\impl.py", line 166, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\pool\base.py", line 393, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\pool\base.py", line 678, in __init__
+    self.__connect()
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\pool\base.py", line 902, in __connect
+    with util.safe_reraise():
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\util\langhelpers.py", line 147, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\pool\base.py", line 898, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\engine\create.py", line 637, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\engine\default.py", line 616, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\MySQLdb\__init__.py", line 123, in Connect
+    return Connection(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\MySQLdb\connections.py", line 185, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb.OperationalError: (1045, "Access denied for user 'jose.euclides'@'localhost' (using password: NO)")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\flask\app.py", line 2213, in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\flask\app.py", line 2193, in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Jose Euclides\Desktop\Programação\Python\Bot\backend\app.py", line 59, in executar
+    db.session.commit()
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\orm\scoping.py", line 553, in commit
+    return self._proxied.commit()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\orm\session.py", line 1906, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\orm\session.py", line 1221, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\orm\session.py", line 1196, in _prepare_impl
+    self.session.flush()
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\orm\session.py", line 4154, in flush
+    self._flush(objects)
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\orm\session.py", line 4290, in _flush
+    with util.safe_reraise():
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\util\langhelpers.py", line 147, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\orm\session.py", line 4251, in _flush
+    flush_context.execute()
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\orm\unitofwork.py", line 467, in execute
+    rec.execute(self)
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\orm\unitofwork.py", line 644, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\orm\persistence.py", line 60, in save_obj
+    for (
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\orm\persistence.py", line 221, in _organize_states_for_save
+    for state, dict_, mapper, connection in _connections_for_states(
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\orm\persistence.py", line 1726, in _connections_for_states
+    connection = uowtransaction.transaction.connection(base_mapper)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in connection
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\orm\session.py", line 966, in connection
+    return self._connection_for_bind(bind, execution_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in _connection_for_bind
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\orm\session.py", line 1099, in _connection_for_bind
+    conn = self._parent._connection_for_bind(bind, execution_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in _connection_for_bind
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\orm\session.py", line 1111, in _connection_for_bind
+    conn = bind.connect()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\engine\base.py", line 3269, in connect
+    return self._connection_cls(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\engine\base.py", line 147, in __init__
+    Connection._handle_dbapi_exception_noconnection(
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\engine\base.py", line 2431, in _handle_dbapi_exception_noconnection
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\engine\base.py", line 145, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\engine\base.py", line 3293, in raw_connection
+    return self.pool.connect()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\pool\base.py", line 452, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\pool\base.py", line 1268, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\pool\base.py", line 716, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\pool\impl.py", line 168, in _do_get
+    with util.safe_reraise():
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\util\langhelpers.py", line 147, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\pool\impl.py", line 166, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\pool\base.py", line 393, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\pool\base.py", line 678, in __init__
+    self.__connect()
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\pool\base.py", line 902, in __connect
+    with util.safe_reraise():
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\util\langhelpers.py", line 147, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\pool\base.py", line 898, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\engine\create.py", line 637, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sqlalchemy\engine\default.py", line 616, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\MySQLdb\__init__.py", line 123, in Connect
+    return Connection(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jose Euclides\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\MySQLdb\connections.py", line 185, in __init__
+    super().__init__(*args, **kwargs2)
+sqlalchemy.exc.OperationalError: (MySQLdb.OperationalError) (1045, "Access denied for user 'jose.euclides'@'localhost' (using password: NO)")
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+
+
+-->
