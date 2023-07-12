@@ -49,5 +49,5 @@ coverage.xml
 # Sphinx documentation
 docs/_build/
 
-
+globais.py
 .json
