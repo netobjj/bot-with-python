@@ -88,6 +88,6 @@ def definir_nova_situacao_aulas(novo_status, nome_arquivo):
 
 # Exemplo de uso
 def executar_funcoes():
-    definir_nova_situacao_aulas("inativa", "inativar_aulas.csv")
+    definir_nova_situacao_aulas("ativa", "inativar_aulas.csv")
 
 executar_funcoes()
